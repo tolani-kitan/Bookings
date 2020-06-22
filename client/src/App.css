@@ -1,0 +1,55 @@
+.room-img {
+  height: 100%;
+}
+
+.book {
+  margin-top: 20%;
+  color: rgba(65, 64, 81, 0.95);
+}
+
+.book p {
+  font-weight: 600;
+}
+
+.book span {
+  font-size: 22px;
+  color: rgba(65, 64, 81, 0.85);
+}
+
+.div-input {
+  color: #414051;
+
+}
+
+.div-form {
+  margin-top: 10%;
+}
+
+.div-label {
+  color: #414051;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.btn-color {
+  background: #30B9DB;
+  float: right;
+}
+
+@media only screen and (max-width: 600px) {
+  .div-book {
+    margin-left: 5%;
+  }
+
+  .book {
+    color: whitesmoke;
+  }
+
+  .book span {
+    color: whitesmoke;
+  }
+
+  .div-label {
+    color: whitesmoke;
+  }
+}
