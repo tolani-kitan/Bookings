@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .room-img {
   height: 100%;
 }
@@ -18,7 +24,6 @@
 
 .div-input {
   color: #414051;
-
 }
 
 .div-form {
@@ -32,7 +37,7 @@
 }
 
 .btn-color {
-  background: #30B9DB;
+  background: #30b9db;
   float: right;
 }
 
@@ -52,4 +57,51 @@
   .div-label {
     color: whitesmoke;
   }
+}
+/* dashbord css */
+.dashboard {
+  width: 100%;
+  display: flex;
+}
+#sidebar {
+  width: 20%;
+  height: 68vh;
+  background-color: #4c4a6c;
+}
+.one {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  opacity: 0.7;
+}
+.two {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  padding: 10px;
+  opacity: 0.7;
+}
+.dropit {
+  margin-top: 105px;
+  align-items: center;
+  background-color: #4c4a6c;
+  padding: 20px;
+  border-top: 1px solid grey;
+}
+.logout {
+  color: #4c4a6c;
+  font-weight: bolder;
+}
+.side {
+  display: flex;
+  justify-content: space-between;
+}
+.content-d {
+  width: 80%;
+  float: right;
+}
+.rooms-d {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
