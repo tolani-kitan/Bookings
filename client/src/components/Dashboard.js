@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Sidebar from "./Sidebar";
 import Rooms from "../components/Rooms";
 import { Button } from "reactstrap";
@@ -13,11 +13,11 @@ const Dashboard = () => {
         <Sidebar />
       </div>
       <div className='content-d'>
-        <div>
+        <div style={{ paddingLeft: "10px" }}>
           <h2>Browse</h2>
         </div>
         <div className='side'>
-          <div>
+          <div style={{ paddingLeft: "10px" }}>
             <Button outline color='secondary'>
               Filter meeting rooms
             </Button>

@@ -24,7 +24,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div className='row'>
+        <div className='row' style={{ marginTop: "20px" }}>
           <form className='col s12'>
             <div className='row'>
               <div className='input-field col s6'>

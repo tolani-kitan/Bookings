@@ -1,9 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+.app {
+  width: 100%;
+  max-width: 100%;
+}
 .room-img {
   height: 100%;
 }
@@ -61,6 +66,7 @@
 /* dashbord css */
 .dashboard {
   width: 100%;
+  max-width: 100%;
   display: flex;
 }
 #sidebar {
@@ -72,14 +78,14 @@
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
-  padding: 10px;
+  padding: 15px;
   opacity: 0.7;
 }
 .two {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
-  padding: 10px;
+  padding: 15px;
   opacity: 0.7;
 }
 .dropit {
@@ -104,4 +110,33 @@
 .rooms-d {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media only screen and (max-width: 1024px) {
+  .rooms-d {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .rooms-d {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .content-d {
+    width: 100%;
+  }
+  #sidebar {
+    display: none;
+  }
+  .side {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .side p {
+    padding-left: 10px;
+    margin: 5px;
+  }
 }
