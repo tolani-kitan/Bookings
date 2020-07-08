@@ -9,7 +9,7 @@ const Rooms = () => {
   return (
     <Fragment>
       {rooms.map((room) => (
-        <div>
+        <div style={{ padding: "10px" }}>
           <RoomsItem key={room.id} room={room} />
         </div>
       ))}

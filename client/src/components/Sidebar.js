@@ -34,6 +34,7 @@ const Sidebar = () => {
                 <textarea
                   id='icon_prefix2'
                   className='materialize-textarea'
+                  style={{ width: "200px" }}
                 ></textarea>
                 <label for='icon_prefix2'>Search for meeting rooms..</label>
               </div>

@@ -14,23 +14,19 @@ const RoomsItem = ({ room }) => {
 
   return (
     <div>
-      <Card>
-        <CardBody style={{ width: "300px" }}>
+      <Card style={{ alignItems: "center" }}>
+        <CardBody style={{ maxWidth: "200px" }}>
           <CardTitle>{name}</CardTitle>
           <CardSubtitle>{location}</CardSubtitle>
         </CardBody>
-        <img
-          width='100%'
-          src={image}
-          alt='Card'
-          style={{ width: "350px", paddingLeft: "30px" }}
-        />
+        <img width='100%' src={image} alt='Card' style={{ width: "250px" }} />
         <CardBody>
-          <CardText>Room capacity: {roomCapacity}</CardText>
+          <CardText>
+            <i class='fas fa-users'></i>Room capacity: {roomCapacity}
+          </CardText>
           <CardLink style={{ color: availability === true ? "green" : "red" }}>
             {availability === true ? "Available now" : "Currently in use"}
           </CardLink>
-          <CardLink href='#'>Another Link</CardLink>
         </CardBody>
       </Card>
     </div>
