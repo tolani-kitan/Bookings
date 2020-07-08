@@ -1,5 +1,6 @@
 const ErrorResponse = require('../utilis/errorResponse');
 const asyncHandler = require('../middleware/async');
+const auth = require('../middleware/auth')
 const User = require('../models/users');
 
 
@@ -25,7 +26,7 @@ exports.register = asyncHandler(async (req, res, next) => {
 //@route GET/auth/users
 //@access Private
 
-exports.users = asyncHandler(async (req, res, next) => {
+exports.users = asyncHandler( async (req, res, next) => {
     const user = await User.find(req.user);
 
     res.status(200).json({
@@ -37,11 +38,11 @@ exports.users = asyncHandler(async (req, res, next) => {
 
 
 // @desc        Login user
-// @route       POST/auth/register
+// @route       POST/auth/login
 // @access      Public
 
 exports.login= asyncHandler(async (req, res, next) => {
-    const { name, email, password, image} = req.body;
+    const { email, password } = req.body;
 
     // Validate email and password
     if(!email || !password) {
@@ -93,7 +94,7 @@ const sendTokenResponse = (user, statusCode, res) => {
 // @desc        GET current logged in user
 // @route       POST/auth/me
 // @access      Private
-exports.dashboard = asyncHandler(async (req, res, next) => {
+exports.dashboard = asyncHandler( async (req, res, next) => {
     const user = await User.findById(req.user.id);
 
     res.status(200).json({
