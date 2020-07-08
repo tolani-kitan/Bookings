@@ -1,18 +1,21 @@
 import React, { Fragment, useContext } from "react";
-import RoomContext from "../context/RoomContext";
+import RoomContext from "../context/room/RoomContext";
 import RoomsItem from "./RoomsItem";
 
 const Rooms = () => {
   const roomContext = useContext(RoomContext);
-  const { rooms } = roomContext;
+  const { rooms, filtered } = roomContext;
+
 
   return (
     <Fragment>
-      {rooms.map((room) => (
-        <div>
-          <RoomsItem key={room.id} room={room} />
-        </div>
-      ))}
+      {filtered !== null ? filtered.map(room =>  (
+        <RoomsItem key={room.id} room={room} />
+        )) : rooms.map((room) => (
+        
+        <RoomsItem key={room.id} room={room} />
+    ))}
+      
     </Fragment>
   );
 };

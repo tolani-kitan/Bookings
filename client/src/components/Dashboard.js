@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Sidebar from "./Sidebar";
-import Rooms from "../components/Rooms";
+import Rooms from "./Rooms";
 import { Button } from "reactstrap";
+import AuthContext from "../context/auth/authContext";
+
 
 const Dashboard = () => {
-  // const [info, setInfo] = useState({
-  //   name: "Omotolani Damola",
-  // });
+  
+  const authContext = useContext(AuthContext);
+
+  useEffect(() => {
+    authContext.loadUser();
+    //eslint-disable-next-line
+  }, []);
+
   return (
     <div className='dashboard'>
       <div id='sidebar'>

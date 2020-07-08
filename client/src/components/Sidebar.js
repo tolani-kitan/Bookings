@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { Redirect } from 'react-router-dom';
 import {
   UncontrolledDropdown,
   DropdownToggle,
@@ -8,8 +9,19 @@ import {
 import { Link } from "react-router-dom";
 import "materialize-css/dist/css/materialize.min.css";
 import logo from "../Images/SeekPng 1.png";
+import AuthContext from "../context/auth/authContext";
+import RoomFilter from "./RoomFilter";
+
 
 const Sidebar = () => {
+  const authContext = useContext(AuthContext);
+  const { isAuthenticated, logout, user } = authContext;
+
+
+  const onLogout = () => {
+    logout();
+  } 
+
   return (
     <Fragment>
       <div>
@@ -27,16 +39,7 @@ const Sidebar = () => {
         <div className='row' style={{ marginTop: "20px" }}>
           <form className='col s12'>
             <div className='row'>
-              <div className='input-field col s6'>
-                <i className='material-icons prefix' style={{ color: "white" }}>
-                  search
-                </i>
-                <textarea
-                  id='icon_prefix2'
-                  className='materialize-textarea'
-                ></textarea>
-                <label for='icon_prefix2'>Search for meeting rooms..</label>
-              </div>
+              <RoomFilter />
             </div>
           </form>
         </div>
@@ -47,10 +50,10 @@ const Sidebar = () => {
           </ul>
         </div>
         <UncontrolledDropdown className='dropit'>
-          <DropdownToggle caret>Omotolani Damola</DropdownToggle>
+          <DropdownToggle caret>{user && user.data.name}</DropdownToggle>
           <DropdownMenu>
             <DropdownItem className='logout'>Return to main site</DropdownItem>
-            <DropdownItem className='logout'>Logout</DropdownItem>
+            <DropdownItem className='logout' onClick={onLogout}><i className='fas fa-sign-out-alt'></i>Logout</DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
       </div>
