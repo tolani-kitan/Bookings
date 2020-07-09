@@ -14,11 +14,11 @@ class BookRoom extends React.Component {
       "10:00 AM",
       "11:00 AM",
       "12:00 PM",
-      "13:00 PM",
-      "14:00 PM",
-      "15:00 PM",
-      "16:00 PM",
-      "17:00 PM",
+      "1:00 PM",
+      "2:00 PM",
+      "3:00 PM",
+      "4:00 PM",
+      "5:00 PM",
     ],
   };
   onChange = (date) => this.setState({ date });
