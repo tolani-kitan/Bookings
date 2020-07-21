@@ -1,16 +1,57 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+/* @import url("https://fonts.googleapis.com/css?family=Roboto"); */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'Muli', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .app {
   width: 100%;
   max-width: 100%;
 }
-.room-img {
-  height: 100%;
+
+.div-image {
+  background-image: url(./Images/room_landing.png);
+  background-size: cover;
+  height: 100vh;
+ 
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 300px;
+  width: 136px;
+  height: 56px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+}
+
+.logo {
+  position: absolute;
+  width: 41.76px;
+  height: 36px;
+  left: 5px;
+  top: 10px;
+}
+
+.logo-name {
+  position: absolute;
+  width: 64.8px;
+  height: 25.92px;
+  left: 54.13px;
+  top: 8.76px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21.6px;
+  line-height: 26px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .book {
@@ -52,6 +93,18 @@
   float: right;
 }
 
+.btn-room {
+  height: 50px;
+  width: 200px;
+  background: #30B9DB;
+  border: 1px solid #30B9DB;
+  border-radius: 4px;
+  font-weight: bolder;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+}
+
 .alert {
   padding: 0.7rem;
   margin: 1rem 0;
@@ -91,6 +144,10 @@
   border: #ccc solid 1px;
 }
 
+.new-room {
+  margin-right: 50px;
+}
+
 @media only screen and (max-width: 600px) {
   .grid-2 {
     grid-template-columns: 1fr;
@@ -105,7 +162,7 @@
 }
 #sidebar {
   width: 20%;
-  height: 68vh;
+  height: 100vh;
   background-color: #4c4a6c;
 }
 .one {

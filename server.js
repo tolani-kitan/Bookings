@@ -15,6 +15,7 @@ connectDB();
 // Route Files
 const bookings = require('./routes/bookings');
 const auth = require('./routes/auth');
+const admin = require('./routes/admin');
 
 const app = express();
 
@@ -34,6 +35,7 @@ if (process.env.NODE_ENV === 'development') {
 // Mount routers
 app.use('/api/bookings', bookings);
 app.use('/api/auth', auth);
+app.use('/api/auth/admin', admin);
 
 // ErrorHandler
 app.use(errorHandler);
