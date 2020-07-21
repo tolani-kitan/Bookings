@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { Redirect } from 'react-router-dom';
+import { Redirect } from "react-router-dom";
 import {
   UncontrolledDropdown,
   DropdownToggle,
@@ -12,15 +12,13 @@ import logo from "../Images/SeekPng 1.png";
 import AuthContext from "../context/auth/authContext";
 import RoomFilter from "./RoomFilter";
 
-
 const Sidebar = () => {
   const authContext = useContext(AuthContext);
   const { isAuthenticated, logout, user } = authContext;
 
-
   const onLogout = () => {
     logout();
-  } 
+  };
 
   return (
     <Fragment>
@@ -53,7 +51,9 @@ const Sidebar = () => {
           <DropdownToggle caret>{user && user.data.name}</DropdownToggle>
           <DropdownMenu>
             <DropdownItem className='logout'>Return to main site</DropdownItem>
-            <DropdownItem className='logout' onClick={onLogout}><i className='fas fa-sign-out-alt'></i>Logout</DropdownItem>
+            <DropdownItem className='logout' onClick={onLogout}>
+              <i className='fas fa-sign-out-alt'></i>Logout
+            </DropdownItem>
           </DropdownMenu>
         </UncontrolledDropdown>
       </div>
