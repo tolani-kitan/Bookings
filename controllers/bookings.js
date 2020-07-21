@@ -25,7 +25,7 @@ exports.getBookings = asyncHandler(async (req, res, next) => {
 
 // @desc    Get single booking
 // @route   GET/api/v1/booking/:id
-// @access  Public
+// @access  Private
 exports.getBooking = asyncHandler(async (req, res, next) => {
     // try {
         const booking = await Booking.findById(req.params.id);
