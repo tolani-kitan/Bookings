@@ -1,34 +1,32 @@
 
 
-// const ErrorResponse = require('../utils/errorResponse');
+const ErrorResponse = require('../utilis/errorResponse');
 const asyncHandler = require('../middleware/async');
-// const Bookings = require('../models/Bookings');
+const Booking = require('../models/bookings');
+const User = require('../models/users');
 
 // @desc    Get all bookings
-// @route   GET/api/v1/bookings
+// @route   GET/api/bookings
 // @access  Public
 
 exports.getBookings = asyncHandler(async (req, res, next) => {
-    // try {
         const bookings = await Booking.find();
 
         res.status(200).json({ 
             success: true, 
             count: bookings.length,
             data: bookings
-        })
-    // } catch (err) {
-    //     next(err);
-    // }  
+        }) 
 });
 
 
 // @desc    Get single booking
-// @route   GET/api/v1/booking/:id
+// @route   GET/api/:userId/bookings
 // @access  Private
 exports.getBooking = asyncHandler(async (req, res, next) => {
-    // try {
-        const booking = await Booking.findById(req.params.id);
+        const booking = await Booking.findById(req.params.id).populate({
+            path: 'users'
+        });
         if (!booking) {
             return next(
                 new ErrorResponse(`Booking not found with id of ${req.params.id}`, 404)
@@ -39,33 +37,28 @@ exports.getBooking = asyncHandler(async (req, res, next) => {
             success: true, 
             data: booking
         })
-    // } catch (err) {
-    //     next(err);
-    // }
 });
 
 // @desc    Create new booking
-// @route   POST /api/v1/booking
+// @route   POST /api/:userId/bookings
 // @access  Private
-exports.createBookings = asyncHandler(async (req, res, next) => {
-    // try {
-        const bookings = await Booking.create(req.body);
-
-        res.status(201).json({
-            success: true,
-            data: booking
-        });
-    // } catch (err) {
-    //     next(err);
-    // }
-    
+exports.createBooking = asyncHandler(async (req, res, next) => {
+    const {startTime, endTime, bookedDate} = req.body
+    const newBooking = new Booking({
+        startTime,
+        endTime,
+        bookedDate,
+        user: req.user.id,
+        // room: req.room.id
+    });
+    const booking = await newBooking.save();
+    res.json(booking);
 });
 
 // @desc    Update booking
-// @route   PUT /api/v1/bookings/:id
+// @route   PUT /api/bookings/:id
 // @access  Private
 exports.updateBooking = asyncHandler(async (req, res, next) => {
-    // try {
         const booking = await Booking.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true
@@ -79,17 +72,13 @@ exports.updateBooking = asyncHandler(async (req, res, next) => {
             success: true, 
             data: booking
         })
-    // } catch (err) {
-    //     next(err);
-    // }
     
 });
 
 // @desc    Delete booking
-// @route   DELETE /api/v1/bootcamps/:id
+// @route   DELETE /api/v1/bookings/:id
 // @access  Private
 exports.deleteBooking = asyncHandler(async (req, res, next) => {
-    // try {
         const booking = await Booking.findByIdAndDelete(req.params.id);
 
         if(!booking){
@@ -100,9 +89,6 @@ exports.deleteBooking = asyncHandler(async (req, res, next) => {
             success: true, 
             data: {}
         });
-    // } catch (err) {
-    //     next(err);
-    // }
     
 });
 
