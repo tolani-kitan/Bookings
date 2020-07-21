@@ -6,16 +6,11 @@ const Rooms = () => {
   const roomContext = useContext(RoomContext);
   const { rooms, filtered } = roomContext;
 
-
   return (
     <Fragment>
-      {filtered !== null ? filtered.map(room =>  (
-        <RoomsItem key={room.id} room={room} />
-        )) : rooms.map((room) => (
-        
-        <RoomsItem key={room.id} room={room} />
-    ))}
-      
+      {filtered !== null
+        ? filtered.map((room) => <RoomsItem key={room.id} room={room} />)
+        : rooms.map((room) => <RoomsItem key={room.id} room={room} />)}
     </Fragment>
   );
 };
