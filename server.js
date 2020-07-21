@@ -16,6 +16,7 @@ connectDB();
 const bookings = require('./routes/bookings');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
+const rooms = require('./routes/rooms');
 
 const app = express();
 
@@ -36,11 +37,12 @@ if (process.env.NODE_ENV === 'development') {
 app.use('/api/bookings', bookings);
 app.use('/api/auth', auth);
 app.use('/api/auth/admin', admin);
+app.use('/api/rooms', rooms);
 
 // ErrorHandler
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
     PORT, 
