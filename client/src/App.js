@@ -10,6 +10,7 @@ import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./routing/PrivateRoute";
 import Alert from "./components/Alert";
 
+
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
