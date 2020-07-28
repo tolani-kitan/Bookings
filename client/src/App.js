@@ -9,7 +9,7 @@ import AlertState from "./context/alert/AlertState";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./routing/PrivateRoute";
 import Alert from "./components/Alert";
-import FilterPage from "./components/FilterPage";
+
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -25,8 +25,7 @@ const App = () => {
               <Alert />
               <Switch>
                 <Route exact path='/' component={Landing} />
-                <Route exact path='/dashboard' component={Dashboard} />
-                <Route exact path='/dashboard/filter' component={FilterPage} />
+                <PrivateRoute exact path='/dashboard' component={Dashboard} />
               </Switch>
             </div>
           </Router>
