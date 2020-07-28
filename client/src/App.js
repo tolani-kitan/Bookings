@@ -16,6 +16,7 @@ import AddRoom from "./components/admin/Rooms/AddRoom";
 import ViewRooms from "./components/admin/Rooms/ViewRooms";
 import EditRoom from "./components/admin/Rooms/EditRoom";
 
+
 if (localStorage.token) {
   setAuthToken(localStorage.token);
 }

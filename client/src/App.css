@@ -162,7 +162,6 @@ body {
   #sidebar {
     display: none;
   }
-
 }
 /* dashbord css */
 .dashboard {
@@ -171,11 +170,6 @@ body {
   display: flex;
 }
 
-#sidebar {
-  width: 20%;
-  height: 100vh;
-  background-color: #4c4a6c;
-}
 
 .one {
   font-size: 1.5rem;
@@ -195,7 +189,6 @@ body {
 .dropit {
   margin-top: 105px;
   align-items: center;
-  background-color: #4c4a6c;
   padding: 20px;
   border-top: 1px solid grey;
 }
@@ -207,13 +200,14 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.content-d {
+/* .content-d {
   width: 80%;
   float: right;
-}
-.rooms-d {
+} */
+/* .rooms-d {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+
   grid-gap: 20px;
 }
 
@@ -278,6 +272,25 @@ body {
     width: 100%;
   }
 
+=======
+} */
+
+@media only screen and (max-width: 1024px) {
+  /* .rooms-d {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  } */
+}
+@media only screen and (max-width: 768px) {
+  /* .rooms-d {
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  } */
+  /* .content-d {
+    width: 100%;
+  } */
   #sidebar {
     width: 25%;
   }
@@ -341,9 +354,6 @@ body {
 .filter-btn {
   padding: 20px;
   border-top: 1px solid white;
-}
-.filter-btn button {
-  margin-left: 25px;
 }
 #components-layout-demo-side .logo {
   height: 32px;

@@ -7,6 +7,7 @@ import {
   CardTitle,
   CardSubtitle,
 } from "reactstrap";
+import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 
 
@@ -16,12 +17,14 @@ const RoomsItem = ({ room }) => {
 
   return (
     <div>
-      <Card style={{ alignItems: "center" }}>
-        <CardBody style={{ maxWidth: "200px" }}>
+      <Card style={{ alignItems: "center", padding:'20px', margin:'6px' }} >
+        <CardBody style={{ maxWidth: "200px"}}>
           <CardTitle>{name}</CardTitle>
           <CardSubtitle>{location}</CardSubtitle>
         </CardBody>
-        <img width='100%' src={images[0]} alt='Card' style={{ width: "250px" }} />
+        <Link to={`/product/${id}`}>
+        <img width='100%' src={image[0]} alt='Card' style={{ width: "250px" }} />
+        </Link>
         <CardBody>
           <CardText>
             <i class='fas fa-users'></i>Room capacity: {capacity}

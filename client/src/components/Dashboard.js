@@ -7,11 +7,10 @@ import AuthContext from "../context/auth/authContext";
 import { Layout, Menu, Row } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
 
+
 const { Header, Content, Sider } = Layout;
 
-
 const Dashboard = () => {
-  
   const authContext = useContext(AuthContext);
 
   useEffect(() => {
@@ -47,18 +46,18 @@ const Dashboard = () => {
               </div>
               <div className='side'>
                 <div style={{ paddingLeft: "10px" }}>
-                <Link to='/dashboard/filter'>
-                  <Button outline color='secondary'>
-                    Filter meeting rooms
-                  </Button>
-                </Link>
+                  <Link to='/dashboard/filter'>
+                    <Button outline color='secondary'>
+                      Filter meeting rooms
+                    </Button>
+                  </Link>
                 </div>
                 <div>
                   <p>12 rooms are currently in use</p>
                   <p>3 rooms are currently available</p>
                 </div>
               </div>
-              <Row gutter={[16, 16]} >
+              <Row gutter={[16, 16]}>
                 <Rooms />
               </Row>
             </div>

@@ -1,19 +1,19 @@
 import React, { Fragment } from "react";
-import { Button } from "reactstrap";
+import "materialize-css/dist/css/materialize.min.css";
 import {Link} from 'react-router-dom';
+import { Button } from "reactstrap";
 import { Layout, Menu, Row } from "antd";
 import Rooms from "./Rooms";
 
 const { Content, Sider } = Layout;
 
 const FilterPage = () => {
-  return (
-    // const [checking, setChecking] = useState({clicked: false})
+  // const [checking, setChecking] = useState({clicked: false})
 
   // const handleCheck = () => {
   //    setChecking({clicked: event.target.checked})
   // }
-
+  return (
     <Layout>
       <Sider
         breakpoint='lg'
