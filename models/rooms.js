@@ -20,6 +20,10 @@ const RoomSchema = new mongoose.Schema({
     availability: {
         type: Boolean
     },
+    images: {
+        type: Array,
+        required: [true, 'Please add images']
+    }
     
 });
 

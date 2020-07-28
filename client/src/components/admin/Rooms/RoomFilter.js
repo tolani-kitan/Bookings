@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect } from 'react';
-import RoomContext from '../context/room/RoomContext';
+import RoomContext from '../../context/room/RoomContext';
 
 const RoomFilter = () => {
     const roomContext = useContext(RoomContext);
@@ -33,7 +33,7 @@ const RoomFilter = () => {
                   ref={text} 
                   onChange= {onChange}
                 />
-                <label for='icon_prefix2'>Search meeting rooms...</label>
+                <label for='icon_prefix2'>Search rooms..</label>
               </div>
     )
 }

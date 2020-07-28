@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import {
   Card,
   CardText,
@@ -9,8 +9,10 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 
+
 const RoomsItem = ({ room }) => {
-  const { id, name, location, image, roomCapacity, availability } = room;
+
+  const { name, images, location, capacity, availability } = room;
 
   return (
     <div>
@@ -19,10 +21,10 @@ const RoomsItem = ({ room }) => {
           <CardTitle>{name}</CardTitle>
           <CardSubtitle>{location}</CardSubtitle>
         </CardBody>
-        <img width='100%' src={image} alt='Card' style={{ width: "250px" }} />
+        <img width='100%' src={images[0]} alt='Card' style={{ width: "250px" }} />
         <CardBody>
           <CardText>
-            <i class='fas fa-users'></i>Room capacity: {roomCapacity}
+            <i class='fas fa-users'></i>Room capacity: {capacity}
           </CardText>
           <CardLink style={{ color: availability === true ? "green" : "red" }}>
             {availability === true ? "Available now" : "Currently in use"}
