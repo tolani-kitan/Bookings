@@ -36,6 +36,5 @@ const RoomFilter = () => {
       <label for='icon_prefix2'>Search meeting rooms..</label>
     </div>
   );
-};
 
 export default RoomFilter;

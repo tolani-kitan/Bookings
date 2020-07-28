@@ -7,7 +7,6 @@ import {
   DropdownItem,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import "materialize-css/dist/css/materialize.min.css";
 import logo from "../Images/SeekPng 1.png";
 import AuthContext from "../context/auth/authContext";
 import RoomFilter from "./RoomFilter";

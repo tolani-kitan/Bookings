@@ -21,20 +21,7 @@ const AuthState = (props) => {
     error: null,
   };
 
-<<<<<<< HEAD
-const AuthState = props => {
-    const initialState = {
-       token: localStorage.getItem('token'),
-       isAuthenticated: false,
-       loading: true,
-       user: null,
-       error: null
-    };
-
     const [state, dispatch] = useReducer(authReducer, initialState);
-=======
-  const [state, dispatch] = useReducer(authReducer, initialState);
->>>>>>> 2013240c1451c4067ecde5db24afce2f2f2e84bf
 
   //Load User
   const loadUser = async () => {
