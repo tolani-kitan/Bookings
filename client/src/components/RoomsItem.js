@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import {
   Card,
   CardText,
@@ -10,8 +10,10 @@ import {
 import {Link} from 'react-router-dom';
 import PropTypes from "prop-types";
 
+
 const RoomsItem = ({ room }) => {
-  const { id, name, location, image, roomCapacity, availability } = room;
+
+  const { name, images, location, capacity, availability } = room;
 
   return (
     <div>
@@ -21,11 +23,11 @@ const RoomsItem = ({ room }) => {
           <CardSubtitle>{location}</CardSubtitle>
         </CardBody>
         <Link to={`/product/${id}`}>
-        <img width='100%' src={image} alt='Card' style={{ width: "250px" }} />
+        <img width='100%' src={image[0]} alt='Card' style={{ width: "250px" }} />
         </Link>
         <CardBody>
           <CardText>
-            <i class='fas fa-users'></i>Room capacity: {roomCapacity}
+            <i class='fas fa-users'></i>Room capacity: {capacity}
           </CardText>
           <CardLink style={{ color: availability === true ? "green" : "red" }}>
             {availability === true ? "Available now" : "Currently in use"}

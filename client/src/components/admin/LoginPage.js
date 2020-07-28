@@ -1,15 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
-import room from "../Images/SeekPng 1.png";
-import AuthContext from "../context/auth/authContext";
+import room from "../../Images/room_landing.png";
+import AuthContext from "../../context/auth/authContext";
 
-const Landing = (props) => {
+const LoginPage = (props) => {
   const authContext = useContext(AuthContext);
 
   const { login, error, clearErrors, isAuthenticated } = authContext;
 
   useEffect(() => {
+
     if (isAuthenticated) {
-      props.history.push("/dashboard");
+      props.history.push("/admin/dashboard");
     }
 
     if (error === "Invalid credentials") {
@@ -46,10 +47,7 @@ const Landing = (props) => {
     <div className="container">
       <div className="grid-2">
         <div className="div-image">
-          <div className='logo-box'>
-            <img className="logo" src={room} alt="meeting room" />
-            <p className='logo-name'> raster</p>
-          </div>
+          <img className="room-img" src={room} alt="meeting room" />
         </div>
 
         <div className="div-book">
@@ -100,4 +98,4 @@ const Landing = (props) => {
   );
 };
 
-export default Landing;
+export default LoginPage;

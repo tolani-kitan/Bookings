@@ -1,7 +1,6 @@
 const ErrorResponse = require('../utilis/errorResponse');
 const asyncHandler = require('../middleware/async');
-const auth = require('../middleware/auth')
-const User = require('../models/users');
+const Admin = require('../models/admin');
 
 
 // @desc        Register user
@@ -9,17 +8,16 @@ const User = require('../models/users');
 // @access      Public
 
 exports.register = asyncHandler(async (req, res, next) => {
-    const { name, email, password, image} = req.body;
+    const { name, email, password } = req.body;
 
     // Create User 
-    const user = await User.create({
+    const admin = await Admin.create({
         name,
         email,
         password,
-        image
     });
 
-    sendTokenResponse(user, 200, res);
+    sendTokenResponse(admin, 200, res);
 });
 
 //@desc Get all users
@@ -27,11 +25,11 @@ exports.register = asyncHandler(async (req, res, next) => {
 //@access Private
 
 exports.users = asyncHandler( async (req, res, next) => {
-    const user = await User.find(req.user);
+    const admin = await Admin.find(req.user);
 
     res.status(200).json({
         success:true,
-        data: user
+        data: admin
     })
     
 })
@@ -50,28 +48,28 @@ exports.login= asyncHandler(async (req, res, next) => {
     }
 
     // Check for user
-    const user = await User.findOne({ email }).select('+password');
+    const admin = await Admin.findOne({ email }).select('+password');
 
     if(!user) {
         return next(new ErrorResponse('Invalid credentials', 401));
     }
 
     // check if password matches
-    const isMatch = await user.matchPassword(password);
+    const isMatch = await admin.matchPassword(password);
 
     if(!isMatch) {
         return next(new ErrorResponse('Invalid credential', 401));
     }
 
-    sendTokenResponse(user, 200, res);
+    sendTokenResponse(admin, 200, res);
     
 });
 
 
 // Get token from model, create cookie and send response
-const sendTokenResponse = (user, statusCode, res) => {
+const sendTokenResponse = (admin, statusCode, res) => {
     // Create token
-    const token = user.getSignedJwtToken();
+    const token = admin.getSignedJwtToken();
 
     const options = {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
@@ -95,7 +93,7 @@ const sendTokenResponse = (user, statusCode, res) => {
 // @route       POST/auth/me
 // @access      Private
 exports.dashboard = asyncHandler(async (req, res, next) => {
-    const user = await User.findById(req.user.id);
+    const admin = await admin.findById(req.user.id);
 
     res.status(200).json({
         success:true,

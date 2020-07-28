@@ -1,10 +1,12 @@
 import React, { useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import Sidebar from "./Sidebar";
 import Rooms from "./Rooms";
 import { Button } from "reactstrap";
 import AuthContext from "../context/auth/authContext";
-import { Layout, Menu, Row } from "antd";
+import { Layout, Menu, Row } from 'antd';
+import { UploadOutlined, UserOutlined, VideoCameraOutlined } from "@ant-design/icons";
+
 
 const { Header, Content, Sider } = Layout;
 
