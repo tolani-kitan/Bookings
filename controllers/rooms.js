@@ -38,12 +38,19 @@ exports.getRoom = asyncHandler(async (req, res, next) => {
 // @route   POST /api/room
 // @access  Private
 exports.createRoom = asyncHandler(async (req, res, next) => {
-        const room = await Room.create(req.body);
+    const user = res.locals.user;
+    const {name, capacity,location} = req.body;
+    const room = await Room.create({
+        name,
+        capacity,
+        location,
+        user: req.user.id
+    });
 
-        res.status(201).json({
-            success: true,
-            data: room
-        }); 
+    res.status(201).json({
+        success: true,
+        data: room
+    }); 
 });
 
 // @desc    Update room

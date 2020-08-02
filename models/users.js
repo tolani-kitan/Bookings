@@ -32,7 +32,13 @@ const UserSchema = new mongoose.Schema({
       type: String,
       required: [false],
       unique: true
-  }
+  },
+  rooms: [{ type: mongoose.Schema.Types.ObjectId,
+            ref: "Room"
+  }],
+  bookings: [{ type: mongoose.Schema.Types.ObjectId,
+            ref: "Booking"
+  }]
 }); 
 
 
