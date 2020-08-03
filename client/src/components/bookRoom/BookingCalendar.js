@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar";
-import BookRoom from "../components/utils/BookRoom";
+import BookRoom from "../utils/BookRoom";
 import "react-calendar/dist/Calendar.css";
 import { Card, CardBody } from "reactstrap";
 

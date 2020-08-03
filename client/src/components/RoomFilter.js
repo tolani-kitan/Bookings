@@ -32,8 +32,8 @@ const RoomFilter = () => {
         className='materialize-textarea'
         ref={text}
         onChange={onChange}
+        placeholder='Search rooms..'
       />
-      <label for='icon_prefix2'>Search meeting rooms..</label>
     </div>
   );
 };

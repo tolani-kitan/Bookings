@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import "~antd/dist/antd.css";
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 * {
   margin: 0;
@@ -8,7 +9,7 @@
 }
 
 body {
-  font-family: 'Muli', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Muli", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app {
@@ -20,7 +21,6 @@ body {
   background-image: url(./Images/room_landing.png);
   background-size: cover;
   height: 100vh;
- 
 }
 
 .logo-box {
@@ -97,8 +97,8 @@ body {
 .btn-room {
   height: 50px;
   width: 200px;
-  background: #30B9DB;
-  border: 1px solid #30B9DB;
+  background: #30b9db;
+  border: 1px solid #30b9db;
   border-radius: 4px;
   font-weight: bolder;
   font-size: 16px;
@@ -106,7 +106,7 @@ body {
   color: #ffffff;
 }
 
-.one:hover, 
+.one:hover,
 .two:hover {
   border-left: 2px solid #f0f0f0;
 }
@@ -170,7 +170,6 @@ body {
   display: flex;
 }
 
-
 .one {
   font-size: 1.5rem;
   font-weight: bold;
@@ -187,7 +186,7 @@ body {
   opacity: 0.7;
 }
 .dropit {
-  margin-top: 105px;
+  margin-top: 350px;
   align-items: center;
   padding: 20px;
   border-top: 1px solid grey;
@@ -294,7 +293,7 @@ body {
   #sidebar {
     width: 25%;
   }
-  
+
   .side {
     display: flex;
     flex-wrap: wrap;
@@ -344,9 +343,10 @@ body {
 }
 .filter h2 {
   color: #ffffff;
-  line-height: 40px;
-  font-size: 2rem;
   margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 40px;
 }
 .label {
   padding: 10px;

@@ -11,16 +11,25 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const RoomsItem = ({ room }) => {
-  const { id, name, images, location, capacity, availability } = room;
+  const { _id, name, images, location, capacity, availability } = room;
 
   return (
     <div>
-      <Card style={{ alignItems: "center", padding: "20px", margin: "6px" }}>
-        <CardBody style={{ maxWidth: "200px" }}>
-          <CardTitle>{name}</CardTitle>
+      <Card style={{ alignItems: "center", padding: "20px", margin: "5px" }}>
+        <CardBody style={{ maxWidth: "260px" }}>
+          <CardTitle
+            style={{
+              color: "rgba(65, 64, 81, 0.95)",
+              lineHeight: "26px",
+              fontSize: "16px",
+              fontWeight: "bold",
+            }}
+          >
+            {name}
+          </CardTitle>
           <CardSubtitle>{location}</CardSubtitle>
         </CardBody>
-        <Link to={`/product/${id}`}>
+        <Link to={`/room/${_id}`}>
           <img
             width='100%'
             src={images[0]}
