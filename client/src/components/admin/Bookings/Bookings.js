@@ -9,6 +9,8 @@ const Bookings = () => {
 
   return (
     <Fragment>
+        <BookingsItem />
+
       {/* {filtered !== null
         ? filtered.map((booking) => <BookingsItem key={booking.id} booking={booking} />)
         : bookings.map((booking) => <BookingsItem key={booking.id} booking={booking} />)} */}
@@ -18,3 +20,4 @@ const Bookings = () => {
 };
 
 export default Bookings;
+

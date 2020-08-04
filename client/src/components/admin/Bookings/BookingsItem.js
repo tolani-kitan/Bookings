@@ -2,16 +2,32 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import BookingContext from "../../../context/bookings/BookingContext";
 
+const TableBody = ({bookings}) => {
 
-const BookingsItem = ({ booking }) => {
+  const { room, userName, shared, time, status } = bookings;
+  const bookingsData = bookings.map((booking, index) => {
+      return (
+          <tr key={index}>
+            <td>{booking.room}</td>
+            <td>{booking.userName}</td>
+            <td>{booking.shared}</td>
+            <td>{booking.time}</td>
+            <td> {booking.status}</td>
+          </tr>
+      )
+  })
+  return <tbody>{bookingsData}</tbody>
+
+}
+
+
+const BookingsItem = () => {
   const bookingContext = useContext(BookingContext);
-
-  const { room, userName, shared, time, status } = booking;
-
+  const { bookings, filtered } = bookingContext;
 
   return (
     <div>
-       <table class="responsive-table">
+       <table class="responsive-table bookings-table">
         <thead>
           <tr>
               <th>Room</th>
@@ -21,17 +37,7 @@ const BookingsItem = ({ booking }) => {
               <th>Status</th>
           </tr>
         </thead>
-
-        <tbody>
-          <tr>
-            <td>{room}</td>
-            <td>{userName}</td>
-            <td>{shared}</td>
-            <td>{time}</td>
-            <td> {status}</td>
-          </tr>
-          
-        </tbody>
+        <TableBody bookings={bookings} />
       </table>
 
     </div>

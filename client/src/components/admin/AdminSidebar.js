@@ -48,7 +48,7 @@ const AdminSidebar = () => {
             <Link to="/admin/rooms" className='two'>Rooms</Link>
           </ul>
         </div>
-        <UncontrolledDropdown className='dropit'>
+        <UncontrolledDropdown className='dropit1'>
           <DropdownToggle caret>{user && user.data.name}</DropdownToggle>
           <DropdownMenu>
             <DropdownItem className='logout'>Return to main site</DropdownItem>

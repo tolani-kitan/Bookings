@@ -21,7 +21,7 @@ const Sidebar = () => {
 
   return (
     <Fragment>
-      <div>
+      <div style={{ height: "100vh" }}>
         <div className='d-flex flex-row justify-content-around'>
           <div className='p-2'>
             <img src={logo} alt='website logo' />
