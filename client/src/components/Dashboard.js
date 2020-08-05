@@ -57,7 +57,7 @@ const Dashboard = () => {
                     <p>3 rooms are currently available</p>
                   </div>
                 </div>
-                <Row gutter={[16, 16]}>
+                <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                   <Rooms />
                 </Row>
               </div>

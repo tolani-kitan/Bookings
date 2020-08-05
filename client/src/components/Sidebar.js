@@ -42,7 +42,10 @@ const Sidebar = () => {
         </div>
         <div>
           <ul className='list-group'>
-            <Link className='one'>Browse</Link>
+            <Link to='/dashboard' className='one'>
+              Browse
+            </Link>
+            <br />
             <Link className='two'>My Bookings</Link>
           </ul>
         </div>

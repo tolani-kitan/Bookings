@@ -14,33 +14,25 @@ const AdminPage = () => {
   }, []);
 
   return (
-<<<<<<< HEAD
     <div className='dashboard'>
       <div id='sidebar'>
         <AdminSidebar />
       </div>
       <div className='main-section'>
-        <div className='side' style={{ paddingLeft: "50px" }}>
-          <div style={{}}>
-            <p></p>
-          </div>
-          <div className='new-room'></div>
-        </div>
-        <div className='rooms-d' style={{ paddingLeft: "50px" }}>
-=======
-    <div className="dashboard">
-      <div id="sidebar">
-        <AdminSidebar />
-      </div>
-      <div className="main-section">
         <TotalBookings />
 
-        <div style={{ paddingLeft: "50px", fontSize: "24px", fontWeight: "bold", color: "#4C4A6C" }}>
+        <div
+          style={{
+            paddingLeft: "50px",
+            fontSize: "24px",
+            fontWeight: "bold",
+            color: "#4C4A6C",
+          }}
+        >
           <p> Today's Bookings </p>
         </div>
 
-        <div className="bookings" style={{ paddingLeft: "50px" }}>
->>>>>>> refs/remotes/origin/master
+        <div className='bookings' style={{ paddingLeft: "50px" }}>
           <Bookings />
         </div>
       </div>

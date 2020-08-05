@@ -10,25 +10,13 @@ const Bookings = () => {
 
   return (
     <Fragment>
-<<<<<<< HEAD
-      {filtered !== null
-        ? filtered.map((booking) => (
-            <BookingsItem key={booking.id} booking={booking} />
-          ))
-        : bookings.map((booking) => (
-            <BookingsItem key={booking.id} booking={booking} />
-          ))}
-=======
-        <BookingsItem />
+      <BookingsItem />
 
       {/* {filtered !== null
         ? filtered.map((booking) => <BookingsItem key={booking.id} booking={booking} />)
         : bookings.map((booking) => <BookingsItem key={booking.id} booking={booking} />)} */}
-
->>>>>>> refs/remotes/origin/master
     </Fragment>
   );
 };
 
 export default Bookings;
-
