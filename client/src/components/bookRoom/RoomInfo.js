@@ -28,7 +28,7 @@ const RoomInfo = () => {
           {Room.name}
         </h2>
       </div>
-       
+
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <p
           style={{
@@ -52,7 +52,7 @@ const RoomInfo = () => {
           capacity: {Room.capacity}
         </p>
       </div>
-        
+
       <div>
         <h3
           style={{
@@ -65,7 +65,6 @@ const RoomInfo = () => {
           Room Features
         </h3>
       </div>
-            
     </div>
   );
 };

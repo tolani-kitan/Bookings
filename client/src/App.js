@@ -8,6 +8,7 @@ import AdminPage from "./components/admin/AdminPage";
 import RoomState from "./context/room/RoomState";
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alert/AlertState";
+import BookingState from "./context/bookings/BookingState";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./routing/PrivateRoute";
 import Alert from "./components/Alert";
@@ -25,28 +26,34 @@ const App = () => {
   return (
     <AuthState>
       <RoomState>
-        <AlertState>
-          <Router>
-            <div>
-              <Alert />
-              <Switch>
-                <Route exact path='/' component={Landing} />
-                <PrivateRoute exact path='/dashboard' component={Dashboard} />
-                <Route exact path='/dashboard/filter' component={FilterPage} />
-                <Route exact path='/admin' component={LoginPage} />
-                <Route exact path='/admin/dashboard' component={AdminPage} />
-                <Route exact path='/admin/addRoom' component={AddRoom} />
-                <Route exact path='/admin/rooms' component={ViewRooms} />
-                <Route exact path='/admin/editRoom' component={EditRoom} />
-                <PrivateRoute
-                  exact
-                  path='/room/:roomId'
-                  component={RoomDetail}
-                />
-              </Switch>
-            </div>
-          </Router>
-        </AlertState>
+        <BookingState>
+          <AlertState>
+            <Router>
+              <div>
+                <Alert />
+                <Switch>
+                  <Route exact path='/' component={Landing} />
+                  <PrivateRoute exact path='/dashboard' component={Dashboard} />
+                  <Route
+                    exact
+                    path='/dashboard/filter'
+                    component={FilterPage}
+                  />
+                  <Route exact path='/admin' component={LoginPage} />
+                  <Route exact path='/admin/dashboard' component={AdminPage} />
+                  <Route exact path='/admin/addRoom' component={AddRoom} />
+                  <Route exact path='/admin/rooms' component={ViewRooms} />
+                  <Route exact path='/admin/editRoom' component={EditRoom} />
+                  <PrivateRoute
+                    exact
+                    path='/room/:roomId'
+                    component={RoomDetail}
+                  />
+                </Switch>
+              </div>
+            </Router>
+          </AlertState>
+        </BookingState>
       </RoomState>
     </AuthState>
   );

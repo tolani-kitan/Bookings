@@ -40,7 +40,7 @@ const Dashboard = () => {
               className='site-layout-background'
               style={{ padding: 24, minHeight: 360 }}
             >
-              <div className='content-d'>
+              <div className=''>
                 <div style={{ paddingLeft: "10px" }}>
                   <h2>Browse</h2>
                 </div>

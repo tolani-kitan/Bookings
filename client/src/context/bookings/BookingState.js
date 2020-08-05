@@ -32,7 +32,7 @@ const BookingState = (props) => {
                 userName: "James Brown",
                 shared: "23 people",
                 time: "08:00AM - 10:00AM",
-                status: "Completeted"
+                status: "Completed"
             },
         ],
         filtered: null

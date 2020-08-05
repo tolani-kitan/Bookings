@@ -23,6 +23,10 @@ const RoomSchema = new mongoose.Schema({
     images: {
         type: Array,
         required: [true, 'Please add images']
+    },
+    features: {
+        type: Array,
+        required: [true, 'Please tick the available features']
     }
     
 });
