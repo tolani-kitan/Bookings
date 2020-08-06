@@ -1,6 +1,7 @@
 const ErrorResponse = require('../utilis/errorResponse');
 const asyncHandler = require('../middleware/async');
-const Room = require('../models/rooms');
+const BookRoom = require('../models/bookRoom');
+const Room = require('../models/rooms')
 
 // @desc    Get all rooms
 // @route   GET/api/rooms
@@ -86,14 +87,14 @@ exports.deleteRoom = asyncHandler(async (req, res, next) => {
 // @desc    Book a room
 // @route   POST /api/rooms
 // @access  Private
-exports.bookRoom = asyncHandler(async (req, res, next) => {
-    const {roomId} = req.body
-    const bookedRoom = new Room({
-        roomId,
-        user: req.user.id
-    });
+// exports.bookRoom = asyncHandler(async (req, res, next) => {
+//     const {roomId} = req.body
+//     const bookedRoom = new Room({
+//         roomId,
+//         user: req.user.id
+//     });
 
-    const booked = await bookedRoom.save();
+//     const booked = await bookedRoom.save();
 
-    res.status(200).json(booked); 
-});
+//     res.status(200).json(booked); 
+// });

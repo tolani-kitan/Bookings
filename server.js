@@ -17,6 +17,7 @@ const bookings = require('./routes/bookings');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
 const rooms = require('./routes/rooms');
+const bookRoom = require('./routes/bookroom');
 
 const app = express();
 
@@ -38,6 +39,7 @@ app.use('/api/bookings', bookings);
 app.use('/api/auth', auth);
 app.use('/api/auth/admin', admin);
 app.use('/api/rooms', rooms);
+app.use('/api/bookroom', bookRoom);
 
 // ErrorHandler
 app.use(errorHandler);
