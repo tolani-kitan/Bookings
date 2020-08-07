@@ -46,7 +46,9 @@ const Sidebar = () => {
               Browse
             </Link>
             <br />
-            <Link className='two'>My Bookings</Link>
+            <Link to='/dashboard/my-bookings' className='two'>
+              My Bookings
+            </Link>
           </ul>
         </div>
         <UncontrolledDropdown className='dropit'>

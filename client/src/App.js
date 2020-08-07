@@ -17,6 +17,7 @@ import AddRoom from "./components/admin/Rooms/AddRoom";
 import ViewRooms from "./components/admin/Rooms/ViewRooms";
 import EditRoom from "./components/admin/Rooms/EditRoom";
 import RoomDetail from "./components/bookRoom/RoomDetail";
+import MyBookings from "./components/MyBookings";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -34,6 +35,11 @@ const App = () => {
                 <Switch>
                   <Route exact path='/' component={Landing} />
                   <PrivateRoute exact path='/dashboard' component={Dashboard} />
+                  <PrivateRoute
+                    exact
+                    path='/dashboard/my-bookings'
+                    component={MyBookings}
+                  />
                   <Route
                     exact
                     path='/dashboard/filter'

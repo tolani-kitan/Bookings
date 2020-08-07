@@ -42,7 +42,16 @@ const Dashboard = () => {
             >
               <div className=''>
                 <div style={{ paddingLeft: "10px" }}>
-                  <h2>Browse</h2>
+                  <h2
+                    style={{
+                      color: "#414051",
+                      fontWeight: "800",
+                      fontSize: "35px",
+                      lineHeight: "40px",
+                    }}
+                  >
+                    Browse
+                  </h2>
                 </div>
                 <div className='side'>
                   <div style={{ paddingLeft: "10px" }}>
