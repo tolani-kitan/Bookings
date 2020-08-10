@@ -25,6 +25,6 @@ router
     .delete(deleteRoom);
 
 
-router.post('/bookRoom', protect, bookRoom);
+// router.post('/bookRoom', protect, bookRoom);
 
 module.exports = router; 
