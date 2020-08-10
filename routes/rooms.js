@@ -1,30 +1,23 @@
 const express = require("express");
-const { 
-    getRooms,
-    getRoom,
-    createRoom,
-    updateRoom,
-    deleteRoom,
-    bookRoom
-} = require('../controllers/rooms');
+const {
+  getRooms,
+  getRoom,
+  createRoom,
+  updateRoom,
+  deleteRoom,
+  bookRoom,
+} = require("../controllers/rooms");
 
 const router = express.Router();
 
-const { protect } = require('../middleware/auth');
+const { protect } = require("../middleware/auth");
 
-router
-    .route('/')
-    .get(getRooms)
-    .post(createRoom)
-    // .post(protect, bookRoom);
+router.route("/").get(getRooms).post(createRoom);
+// .post(protect, bookRoom);
 
-router
-    .route('/:id')
-    .get(protect, getRoom)
-    .put(updateRoom)
-    .delete(deleteRoom);
+router.route("/:id").get(protect, getRoom).put(updateRoom).delete(deleteRoom);
 
+router.post("/bookRoom", protect, bookRoom);
 
-// router.post('/bookRoom', protect, bookRoom);
+module.exports = router;
 
-module.exports = router; 

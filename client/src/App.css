@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
 @import "~antd/dist/antd.css";
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 * {
   margin: 0;
@@ -8,7 +9,7 @@
 }
 
 body {
-  font-family: 'Muli', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Muli", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .app {
@@ -20,7 +21,6 @@ body {
   background-image: url(./Images/room_landing.png);
   background-size: cover;
   height: 100vh;
- 
 }
 
 .logo-box {
@@ -97,8 +97,8 @@ body {
 .btn-room {
   height: 50px;
   width: 200px;
-  background: #30B9DB;
-  border: 1px solid #30B9DB;
+  background: #30b9db;
+  border: 1px solid #30b9db;
   border-radius: 4px;
   font-weight: bolder;
   font-size: 16px;
@@ -106,7 +106,7 @@ body {
   color: #ffffff;
 }
 
-.one:hover, 
+.one:hover,
 .two:hover {
   border-left: 2px solid #f0f0f0;
 }
@@ -172,32 +172,32 @@ body {
 }
 
 #sidebar {
-  background-color: #4C4A6C;
+  background-color: #4c4a6c;
   height: 100vh;
   width: 20%;
 }
 
 .main-section {
-  background: #F5FDFF;
+  background: #f5fdff;
   width: 80%;
 }
 
 .div-icon {
-  background: #F1F0FF;
+  background: #f1f0ff;
   height: 30px;
   width: 30px;
   border-radius: 50%;
 }
 
 .div-icon1 {
-  background: #F0FFF2;
+  background: #f0fff2;
   height: 30px;
   width: 30px;
   border-radius: 50%;
 }
 
 .div-icon2 {
-  background: #FFF0F0;
+  background: #fff0f0;
   height: 30px;
   width: 30px;
   border-radius: 50%;
@@ -206,7 +206,7 @@ body {
 .total-bookings {
   width: 250px;
   height: 150px;
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 6px;
 }
 
@@ -310,7 +310,7 @@ body {
 }
 
 .del {
-  color: #A40303;
+  color: #a40303;
   font-size: 15px;
 }
 
@@ -319,27 +319,34 @@ body {
 }
 
 .btn-but {
-  font-family: 'Muli';
+  font-family: "Muli";
   height: 35px;
   width: 60px;
   margin-bottom: 20px;
-  border: 1px solid #30B9DB;
+  border: 1px solid #30b9db;
   border-radius: 4px;
   background: #fff;
-  color: #30B9DB;
+  color: #30b9db;
   font-weight: bold;
   font-size: 14px;
   line-height: 16px;
 }
 
-@media only screen and (mix-width: 800px) {
+@media only screen and (min-width: 800px) {
   .rooms-d {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
   }
-
-
+  /* .mybook1 {
+    margin-left: 0px;
+    width: 150px;
+  }
+  .mybook2 {
+    width: 150px;
+    height: 150px;
+    margin-left: 0px;
+  } */
 }
 @media only screen and (min-width: 600px) and (max-width: 799px) {
   .rooms-d {
@@ -353,6 +360,17 @@ body {
     width: 100%;
   }
 
+  /* .mybook1 {
+    margin-left: 0px;
+    width: 150px;
+    background-color: lightgreen;
+  }
+  .mybook2 {
+    width: 50px;
+    background-color: lightcoral;
+    height: 150px;
+    margin-left: 0px;
+  } */
 }
 
 @media only screen and (max-width: 1024px) {
@@ -360,21 +378,30 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
+  /* .mybook1 {
+    margin-left: 0px;
+    width: 150px;
+  }
+  .mybook2 {
+    width: 150px;
+    height: 150px;
+    margin-left: 0px;
+  } */
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .rooms-d {
     width: 100%;
     max-width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-  } */
-  .content-d {
+  }
+  */ .content-d {
     width: 100%;
   }
   #sidebar {
     width: 25%;
   }
-  
+
   .side {
     display: flex;
     flex-wrap: wrap;
@@ -383,6 +410,15 @@ body {
     padding-left: 10px;
     margin: 5px;
   }
+  /* .mybook1 {
+    margin-left: 0px;
+    width: 150px;
+  }
+  .mybook2 {
+    width: 50px;
+    height: 120px;
+    margin-left: 0px;
+  } */
 }
 .calendar-page {
   max-width: 100%;
@@ -424,9 +460,10 @@ body {
 }
 .filter h2 {
   color: #ffffff;
-  line-height: 40px;
-  font-size: 2rem;
   margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 40px;
 }
 .label {
   padding: 10px;
@@ -448,4 +485,14 @@ body {
   width: 300px;
   border: 1px solid #f0f0f0;
   border-radius: 2px;
+}
+[data-theme="compact"]
+  .site-collapse-custom-collapse
+  .site-collapse-custom-panel,
+.site-collapse-custom-collapse .site-collapse-custom-panel {
+  background: #30b9db;
+  border-radius: 4px;
+  margin-bottom: 24px;
+  border: 0px;
+  overflow: hidden;
 }
