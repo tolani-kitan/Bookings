@@ -21,7 +21,6 @@ const RoomInfo = () => {
       return item;
     });
 
-  console.log(roomFeatures, "ghhfhdfjh");
   return (
     <div>
       <RoomImage detail={Room} />
