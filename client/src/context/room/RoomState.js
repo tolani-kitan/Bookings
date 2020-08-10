@@ -4,6 +4,7 @@ import roomReducer from "./RoomReducer";
 import axios from 'axios';
 import {
   GET_ROOMS,
+  ADD_ROOM,
   BOOK_ROOM,
   DELETE_ROOM,
   SEARCH_ROOM,
@@ -17,6 +18,8 @@ const RoomState = (props) => {
   const initialState = {
     rooms: [],
     filtered: null,
+    current: null,
+    error: null
   };
 
   const [state, dispatch] = useReducer(roomReducer, initialState);
@@ -38,7 +41,25 @@ const RoomState = (props) => {
 };
 
 //Add Room
-
+const addRoom = async room => {
+  const config = {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }
+  try {
+      const res = await axios.post('/api/rooms', room, config);
+      dispatch({ 
+          type: ADD_ROOM, 
+          payload: res.data
+      })
+  } catch (error) {
+      dispatch({ 
+          type: ROOM_ERROR,
+          payload: error.response.msg 
+      })
+  }
+};
 
 //Edit Room
 
@@ -88,6 +109,7 @@ const clearCurrent = () => {
       rooms: state.rooms,
       filtered: state.filtered,
       getRooms,
+      addRoom,
       deleteRoom,
       setCurrent,
       clearCurrent,

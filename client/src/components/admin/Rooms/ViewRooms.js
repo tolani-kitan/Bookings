@@ -3,13 +3,20 @@ import { Link } from 'react-router-dom';
 import Rooms from "./Rooms";
 import AuthContext from "../../../context/auth/authContext";
 import AdminSidebar from "../AdminSidebar";
+import RoomContext from "../../../context/room/RoomContext";
 
 const ViewRooms = () => {
   
   const authContext = useContext(AuthContext);
 
+  const roomContext = useContext(RoomContext);
+
+  const { rooms, getRooms } = roomContext;
+
   useEffect(() => {
     authContext.loadUser();
+    getRooms();
+    console.log(rooms);
     //eslint-disable-next-line
   }, []);
 
@@ -29,8 +36,8 @@ const ViewRooms = () => {
             </p>
           </div>
           <div className="new-room">
-            <button to="/admin/addRoom" className='btn-room'>
-                + Add New Room
+            <button className='btn-room'>
+                <Link to="/admin/addRoom" style={{ color: "#ffffff" }}> + Add New Room</Link> 
             </button>
           </div>
         </div>
