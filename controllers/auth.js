@@ -31,6 +31,7 @@ exports.users = asyncHandler( async (req, res, next) => {
 
     res.status(200).json({
         success:true,
+        count: user.length,
         data: user
     })
     
@@ -104,7 +105,7 @@ exports.dashboard = asyncHandler(async (req, res, next) => {
 });
 
 // @desc        Logout user
-// @route       POST/auth/login
+// @route       POST/auth/logout
 // @access      Private
 exports.logout = asyncHandler(async (req, res, next) => {
     res.cookie('token', 'none', {
