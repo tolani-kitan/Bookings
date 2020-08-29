@@ -30,8 +30,10 @@ const Dashboard = () => {
             console.log(collapsed, type);
           }}
         >
-          <Menu theme='dark' mode='inline'>
-            <Sidebar />
+          <Menu  mode='inline'>
+            <div>
+              <Sidebar />
+            </div>
           </Menu>
         </Sider>
         <Layout>

@@ -40,7 +40,9 @@ const MyBookings = () => {
           }}
         >
           <Menu theme='dark' mode='inline'>
-            <Sidebar />
+            <div className='sideman'>
+              <Sidebar />
+            </div>
           </Menu>
         </Sider>
         <Layout>

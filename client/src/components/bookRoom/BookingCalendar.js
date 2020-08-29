@@ -6,11 +6,13 @@ import { Card, CardBody } from "reactstrap";
 
 class BookingCalendar extends Component {
   state = {
-    date: new Date(),
+    date: "",
   };
 
-  onChange = (date) => this.setState({ date });
-
+  onChange = (date) => {
+    console.log(date, "jjkdjhdjdjdjdjdjdj");
+    this.setState({ date: new Date(date) });
+  };
   render() {
     return (
       <div>
@@ -20,7 +22,7 @@ class BookingCalendar extends Component {
             <Calendar onChange={this.onChange} value={this.state.date} />
           </div>
           <CardBody>
-            <BookRoom />
+            <BookRoom Room={this.props.Room} />
           </CardBody>
         </Card>
       </div>

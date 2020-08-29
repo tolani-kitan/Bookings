@@ -20,8 +20,14 @@ class BookRoom extends React.Component {
       "4:00 PM",
       "5:00 PM",
     ],
+    start: "",
+    end: "",
   };
-  onChange = (date) => this.setState({ date });
+
+  onChange = (date) => {
+    console.log(date, "ddddddddddddddddd");
+    this.setState({ date: new Date(date) });
+  };
 
   showModal = () => {
     this.setState({
@@ -42,10 +48,12 @@ class BookRoom extends React.Component {
       visible: false,
     });
   };
-  handleChange = (value) => {
-    console.log(`selected ${value}`);
+  handleChange = (value, type) => {
+    console.log(`selected ${value}`, type);
+    this.setState({ type: value });
   };
   render() {
+    console.log(this.state.start);
     return (
       <div>
         <Button type='primary' onClick={this.showModal}>
@@ -100,7 +108,7 @@ class BookRoom extends React.Component {
                   name='start'
                   defaultValue={this.state.value[0]}
                   style={{ width: 120 }}
-                  onChange={this.handleChange}
+                  onChange={(e) => this.handleChange(e, "start")}
                 >
                   {this.state.value.map((value, index) => (
                     <Option key={index} value={value}>
@@ -134,7 +142,7 @@ class BookRoom extends React.Component {
                   name='end'
                   defaultValue={this.state.value[0]}
                   style={{ width: 120 }}
-                  onChange={this.handleChange}
+                  onChange={(e) => this.handleChange(e, "end")}
                 >
                   {this.state.value.map((value, index) => (
                     <Option key={index} value={value}>

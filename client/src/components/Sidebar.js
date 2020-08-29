@@ -46,6 +46,9 @@ const Sidebar = () => {
               Browse
             </Link>
             <br />
+            <br />
+            <br />
+            <br />
             <Link to='/dashboard/my-bookings' className='two'>
               My Bookings
             </Link>
