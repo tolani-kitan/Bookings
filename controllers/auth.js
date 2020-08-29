@@ -24,15 +24,16 @@ exports.register = asyncHandler(async (req, res, next) => {
 //@desc Get all users
 //@route GET/auth/users
 //@access Private
+exports.users = asyncHandler( async (req, res, next) => {
+    const user = await User.find(req.user);
 
-exports.users = asyncHandler(async (req, res, next) => {
-  const user = await User.find(req.user);
-
-  res.status(200).json({
-    success: true,
-    data: user,
-  });
-});
+    res.status(200).json({
+        success:true,
+        count: user.length,
+        data: user
+    })
+    
+})
 
 // @desc        Login user
 // @route       POST/auth/login
@@ -98,7 +99,7 @@ exports.dashboard = asyncHandler(async (req, res, next) => {
 });
 
 // @desc        Logout user
-// @route       POST/auth/login
+// @route       POST/auth/logout
 // @access      Private
 exports.logout = asyncHandler(async (req, res, next) => {
     res.cookie('token', 'none', {
