@@ -3,7 +3,6 @@ import RoomInfo from "../bookRoom/RoomInfo";
 import BookingCalendar from "../bookRoom/BookingCalendar";
 import { Layout, Menu, Row, Col } from "antd";
 import Sidebar from "../Sidebar";
-import RoomImage from "./RoomImage";
 
 const { Content, Sider } = Layout;
 

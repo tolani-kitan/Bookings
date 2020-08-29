@@ -42,8 +42,13 @@ const Sidebar = () => {
         </div>
         <div>
           <ul className='list-group'>
-            <Link className='one'>Browse</Link>
-            <Link className='two'>My Bookings</Link>
+            <Link to='/dashboard' className='one'>
+              Browse
+            </Link>
+            <br />
+            <Link to='/dashboard/my-bookings' className='two'>
+              My Bookings
+            </Link>
           </ul>
         </div>
         <UncontrolledDropdown className='dropit'>

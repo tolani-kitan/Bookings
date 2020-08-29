@@ -42,7 +42,16 @@ const Dashboard = () => {
             >
               <div className=''>
                 <div style={{ paddingLeft: "10px" }}>
-                  <h2>Browse</h2>
+                  <h2
+                    style={{
+                      color: "#414051",
+                      fontWeight: "800",
+                      fontSize: "35px",
+                      lineHeight: "40px",
+                    }}
+                  >
+                    Browse
+                  </h2>
                 </div>
                 <div className='side'>
                   <div style={{ paddingLeft: "10px" }}>
@@ -57,7 +66,7 @@ const Dashboard = () => {
                     <p>3 rooms are currently available</p>
                   </div>
                 </div>
-                <Row gutter={[16, 16]}>
+                <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                   <Rooms />
                 </Row>
               </div>

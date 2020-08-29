@@ -7,6 +7,7 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const GET_ROOMS = 'GET_ROOMS';
+export const ADD_ROOM = 'ADD_ROOM'
 export const DELETE_ROOM = "DELETE_ROOM";
 export const EDIT_ROOM = "EDIT_ROOM";
 export const CURRENT_ROOM = "CURRENT_ROOM";
