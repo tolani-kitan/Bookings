@@ -84,17 +84,3 @@ exports.deleteRoom = asyncHandler(async (req, res, next) => {
     
 });
 
-// @desc    Book a room
-// @route   POST /api/rooms
-// @access  Private
-// exports.bookRoom = asyncHandler(async (req, res, next) => {
-//     const {roomId} = req.body
-//     const bookedRoom = new Room({
-//         roomId,
-//         user: req.user.id
-//     });
-
-//     const booked = await bookedRoom.save();
-
-//     res.status(200).json(booked); 
-// });
