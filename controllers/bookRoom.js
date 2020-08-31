@@ -71,7 +71,7 @@ exports.bookRoom = asyncHandler(async (req, res, next) => {
 
 
 // @desc    Get single bookedroom
-// @route   GET/api/bookroom/getBookedRoom/:id
+// @route   GET/api/bookroom/getBookedRoom
 // @access  Private
 exports.getBookedRoom = asyncHandler(async (req, res, next) => {
     const bookedRoom = await BookRoom.find({user: req.user.id});
