@@ -90,7 +90,7 @@ exports.getBookedRoom = asyncHandler(async (req, res, next) => {
 
 
 // @desc    Update bookedRoom
-// @route   PUT/api/bookroom/:id
+// @route   PUT/api/bookroom/bookedRoomid
 // @access  Private
 exports.updateBookedRoom = asyncHandler(async (req, res, next) => {
     const bookedRoom = await BookRoom.findByIdAndUpdate(req.params.id, req.body, {
@@ -111,7 +111,7 @@ exports.updateBookedRoom = asyncHandler(async (req, res, next) => {
 
 
 // @desc    Delete bookedRoom
-// @route   DELETE /api/bookroom/:id
+// @route   DELETE /api/bookroom/bookedRoomid
 // @access  Private
 exports.deleteBookedRoom = asyncHandler(async (req, res, next) => {
     const bookedRoom = await BookRoom.findByIdAndDelete(req.params.id);
