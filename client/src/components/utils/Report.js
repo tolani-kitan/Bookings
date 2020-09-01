@@ -37,7 +37,9 @@ class Report extends Component {
     return (
       <>
         <Button type='primary' onClick={this.showModal}>
-          Report an issue
+          <p>
+            <i class='fas fa-comment-dots'></i> Report an issue
+          </p>
         </Button>
         <Modal
           title='Report an issue'

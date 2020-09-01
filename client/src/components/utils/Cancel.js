@@ -28,7 +28,9 @@ class Cancel extends Component {
     return (
       <>
         <Button type='primary' onClick={this.showModal}>
-          Cancel booking
+          <p>
+            <i class='far fa-window-close'></i> Cancel booking
+          </p>
         </Button>
         <Modal
           visible={visible}
