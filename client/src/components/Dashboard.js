@@ -30,7 +30,7 @@ const Dashboard = () => {
             console.log(collapsed, type);
           }}
         >
-          <Menu  mode='inline'>
+          <Menu theme='dark' mode='inline'>
             <div>
               <Sidebar />
             </div>

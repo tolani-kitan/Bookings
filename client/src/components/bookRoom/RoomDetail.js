@@ -10,7 +10,7 @@ const { Content, Sider } = Layout;
 
 const RoomDetail = () => {
   const [Room, setRoom] = useState([]);
-  let params = useParams();
+  const params = useParams();
 
   useEffect(() => {
     Axios.get(`/api/rooms/${params.roomId}`).then((response) => {
