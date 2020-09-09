@@ -22,6 +22,7 @@ exports.bookRoom = asyncHandler(async (req, res, next) => {
         const checkAvailable = await BookRoom.find({roomId: req.params.id})
         console.log(checkAvailable, "finding all")
 
+        // To check for available booking time 
             if (checkAvailable.length > 0 ) {
                 for(let i = 0; i < checkAvailable.length; i++){
                     if (checkAvailable[i].startTime <= startTime && checkAvailable[i].endTime >= startTime) {
