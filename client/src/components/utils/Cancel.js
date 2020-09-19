@@ -9,8 +9,8 @@ const Cancel = (props) => {
 
   const { className } = props;
 
-  const { _id } = props.booking;
-  console.log(props.booking.location, "ghggg");
+  const { _id } = props.booking && props.booking[0];
+  // console.log(props, "ghggg", bookContext);
 
   const [modal, setModal] = useState(false);
 
@@ -20,9 +20,10 @@ const Cancel = (props) => {
 
   const toggle = () => setModal(!modal);
   const canceled = () => {
-    // const { _id } = bookings;
-    // console.log(_id);
-    // deleteBookedRoom(_id);
+    const { _id } = bookings[0];
+    console.log(_id);
+    deleteBookedRoom(_id);
+    console.log(props.bookings, "hhhjjjjjjjj");
     setModal(!modal);
   };
 

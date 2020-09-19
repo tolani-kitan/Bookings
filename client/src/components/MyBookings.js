@@ -29,7 +29,7 @@ const MyBookings = () => {
     return `${Number(time)} ${value.split(":")[0] >= 12 ? "PM" : "AM"}`;
   };
 
-  // console.log(bookings, "ggfgf");
+  console.log(bookings, "yessssssss");
   return (
     <>
       <Layout>
@@ -105,7 +105,7 @@ const MyBookings = () => {
                         }}
                       >
                         <div>
-                          <img src={items.images} alt='images' />
+                          <img src={items.images[0]} alt='images' />
                         </div>
                         <div className='mybook1' style={{ marginLeft: "50px" }}>
                           <div
