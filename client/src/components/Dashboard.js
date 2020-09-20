@@ -31,7 +31,9 @@ const Dashboard = () => {
           }}
         >
           <Menu theme='dark' mode='inline'>
-            <Sidebar />
+            <div>
+              <Sidebar />
+            </div>
           </Menu>
         </Sider>
         <Layout>

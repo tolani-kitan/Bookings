@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import RoomInfo from "../bookRoom/RoomInfo";
+import { useParams } from "react-router-dom";
 import BookingCalendar from "../bookRoom/BookingCalendar";
+import Axios from "axios";
 import { Layout, Menu, Row, Col } from "antd";
 import Sidebar from "../Sidebar";
 
 const { Content, Sider } = Layout;
 
 const RoomDetail = () => {
+  const [Room, setRoom] = useState([]);
+  const params = useParams();
+
+  useEffect(() => {
+    Axios.get(`/api/rooms/${params.roomId}`).then((response) => {
+      setRoom(response.data.data);
+    });
+  }, []);
+
   return (
     <div>
       <Layout>
@@ -22,17 +33,19 @@ const RoomDetail = () => {
           }}
         >
           <Menu theme='dark' mode='inline'>
-            <Sidebar />
+            <div className='sideman'>
+              <Sidebar />
+            </div>
           </Menu>
         </Sider>
         <Layout>
           <Content style={{ margin: "24px 16px 0" }}>
             <Row gutter={[16, 16]}>
               <Col lg={12} xs={24}>
-                <RoomInfo />
+                <RoomInfo Room={Room} />
               </Col>
               <Col lg={12} xs={24}>
-                <BookingCalendar />
+                <BookingCalendar Room={Room} />
               </Col>
             </Row>
           </Content>

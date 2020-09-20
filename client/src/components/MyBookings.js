@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Sidebar from "../components/Sidebar";
 import { Layout, Menu, Row, Collapse, DatePicker, Space, Card } from "antd";
 import { CaretRightOutlined } from "@ant-design/icons";
-import logo from "../Images/Pub Picture (4).png";
 import BookingContext from "../context/bookings/BookingContext";
 import Reschedule from "./utils/Reschedule";
 import Cancel from "./utils/Cancel";
 import Report from "./utils/Report";
+import Bookings from "./admin/Bookings/Bookings";
 
 const { RangePicker } = DatePicker;
 
@@ -16,15 +16,20 @@ const { Content, Sider } = Layout;
 
 const MyBookings = () => {
   const bookingContext = useContext(BookingContext);
-  const { bookings } = bookingContext;
-  const { room, date, image, time, status } = bookings;
+  const { bookings, getBookings, status } = bookingContext;
 
-  //   const items =
-  //     bookings &&
-  //     bookings.map((item) => {
-  //       return item;
-  //     });
+  useEffect(() => {
+    getBookings();
+  }, []);
 
+  const formatTime = (value) => {
+    const time = new Date(`1970-01-01T${value}:00.00`)
+      .toLocaleTimeString()
+      .split(":")[0];
+    return `${Number(time)} ${value.split(":")[0] >= 12 ? "PM" : "AM"}`;
+  };
+
+  console.log(bookings, "yessssssss");
   return (
     <>
       <Layout>
@@ -40,7 +45,9 @@ const MyBookings = () => {
           }}
         >
           <Menu theme='dark' mode='inline'>
-            <Sidebar />
+            <div className='sideman'>
+              <Sidebar />
+            </div>
           </Menu>
         </Sider>
         <Layout>
@@ -98,7 +105,7 @@ const MyBookings = () => {
                         }}
                       >
                         <div>
-                          <img src={items.image} alt='images' />
+                          <img src={items.images[0]} alt='images' />
                         </div>
                         <div className='mybook1' style={{ marginLeft: "50px" }}>
                           <div
@@ -109,7 +116,7 @@ const MyBookings = () => {
                               lineHeight: "32px",
                             }}
                           >
-                            {items.room}
+                            {items.name}
                           </div>
                           <br />
                           <div
@@ -122,18 +129,24 @@ const MyBookings = () => {
                           >
                             <div>
                               <p>
-                                <i class='far fa-calendar-alt'></i> {items.date}
+                                <i class='far fa-calendar-alt'></i>{" "}
+                                {new Date(
+                                  items.bookedDate
+                                ).toLocaleDateString()}
                               </p>
                             </div>
                             <div>
                               <p>
-                                <i class='far fa-clock'></i> {items.time}
+                                <i class='far fa-clock'></i>{" "}
+                                {`${formatTime(items.startTime)} - ${formatTime(
+                                  items.endTime
+                                )}`}
                               </p>
                             </div>
                             <div>
                               <input
                                 type='button'
-                                value={items.status}
+                                value={status}
                                 style={{
                                   color:
                                     items.status === "Upcoming"
@@ -165,7 +178,7 @@ const MyBookings = () => {
                               <Report />
                             </div>
                             <div style={{ borderRadius: "3px" }}>
-                              <Cancel />
+                              <Cancel booking={bookings} />
                             </div>
                             <div style={{ borderRadius: "3px" }}>
                               <Reschedule />

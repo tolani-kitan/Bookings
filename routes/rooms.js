@@ -19,4 +19,3 @@ router.route("/:id").get(protect, getRoom).put(updateRoom).delete(deleteRoom);
 // router.post("/bookRoom", protect, bookRoom);
 
 module.exports = router;
-

@@ -29,8 +29,8 @@ const App = () => {
       <RoomState>
         <BookingState>
           <AlertState>
-            <Router>
-              <div>
+            <div>
+              <Router>
                 <Alert />
                 <Switch>
                   <Route exact path='/' component={Landing} />
@@ -56,8 +56,8 @@ const App = () => {
                     component={RoomDetail}
                   />
                 </Switch>
-              </div>
-            </Router>
+              </Router>
+            </div>
           </AlertState>
         </BookingState>
       </RoomState>

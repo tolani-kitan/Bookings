@@ -1,30 +1,19 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import RoomImage from "../bookRoom/RoomImage";
-import Axios from "axios";
 import { Row, Col, List, Typography } from "antd";
 
-const RoomInfo = () => {
-  const [Room, setRoom] = useState([]);
-  let params = useParams();
-
-  useEffect(() => {
-    Axios.get(`/api/rooms/${params.roomId}`).then((response) => {
-      setRoom(response.data.data);
-    });
-  }, []);
+const RoomInfo = (props) => {
   // console.log(Room, "ghsghsfh");
 
   const roomFeatures =
-    Room.features &&
-    Room.features.map((item) => {
+    props.Room.features &&
+    props.Room.features.map((item) => {
       return item;
     });
 
-  console.log(roomFeatures, "ghhfhdfjh");
   return (
     <div>
-      <RoomImage detail={Room} />
+      <RoomImage detail={props.Room} />
       <div>
         <h2
           style={{
@@ -34,7 +23,7 @@ const RoomInfo = () => {
             color: "#414051",
           }}
         >
-          {Room.name}
+          {props.Room.name}
         </h2>
       </div>
 
@@ -49,7 +38,7 @@ const RoomInfo = () => {
                 lineHeight: "24px",
               }}
             >
-              {Room.location}
+              {props.Room.location}
             </p>
           </Col>
           <Col lg={12} xs={24}>
@@ -62,7 +51,7 @@ const RoomInfo = () => {
               }}
             >
               <i class='fas fa-users' style={{ color: "#30B9DB" }}></i> Room
-              capacity: {Room.capacity}
+              capacity: {props.Room.capacity}
             </p>
           </Col>
         </Row>
