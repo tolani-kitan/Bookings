@@ -6,8 +6,6 @@ const Bookings = () => {
   const bookingContext = useContext(BookingContext);
   const { bookings, filtered } = bookingContext;
 
-  console.log(bookings, "ghffsdfgfg");
-
   return (
     <Fragment>
       <BookingsItem />

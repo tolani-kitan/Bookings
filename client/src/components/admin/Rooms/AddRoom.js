@@ -13,20 +13,16 @@ const AddRoom = (props) => {
   const { AddRoom, current, updateRoom } = roomContext;
 
     useEffect(() => {
-        if(current !== null) {
-            setRoom(current);
-        } else {
             setRoom({
               name: "",
               location: "",
               capacity: "",
               time: "",
               number: "",
-              features: Array,
-              images: Array
+              features: [],
+              images: []
             });
-        }
-    }, [roomContext, current])
+        }, [current])
 
   const [room, setRoom] = useState({
     name: "",
@@ -34,28 +30,44 @@ const AddRoom = (props) => {
     capacity: "",
     time: "",
     number: "",
-    features: Array,
-    images: Array
+    features: [],
+    images: []
   });
 
   const { name, location, capacity, time, number, features, images } = room;
 
 
   const onChange = (e) => {
+    // const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+    // if(value === true) {
+    //   console.log(e.target.name)
+    // }
+
     setRoom({
       ...room,
       [e.target.name]: e.target.value,
     });
-    // console.log(e.target.value)
   }
+
+  // const inputChange = (e) => {
+  //   const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+
+  //   if(value === true) {
+  //     console.log(e.target.name)
+  //     setRoom({
+  //       ...room,
+  //       features: e.target.name,
+  //     });
+  //   }
+  // }
+
 
   const buttonSubmit = async (e) => {
     e.preventDefault();
-    if(current === null) {
-        AddRoom(room);
-    } else {
-        updateRoom(room);
-    }
+        // AddRoom(room);
+
+    console.log(name, location, capacity, time, number, features, images)
 };
 
   return (
@@ -130,44 +142,52 @@ const AddRoom = (props) => {
             </Row>
             <FormGroup check inline>
                 <label>
-                  <input type="checkbox" />
+                  <input type="checkbox"
+                  name="Projector"
+                  onChange={onChange} />
                   <span>Projector </span>
                 </label>
             </FormGroup>
             <FormGroup check inline>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox"  name="TV" onChange={onChange} />
                 <span>TV</span>
                </label>
             </FormGroup>
             <FormGroup check inline>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="Telephone" 
+                   onChange={onChange} />
                 <span>Telephone</span>
                </label>
             </FormGroup>
             <Row>
             <FormGroup check inline>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="Dispenser"
+                   onChange={onChange} />
                 <span>Dispenser</span>
                </label>
             </FormGroup>
             <FormGroup check inline>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="PA System"
+                  onChange={onChange} />
                 <span>PA System</span>
                </label>
             </FormGroup>
             <FormGroup check inline>
               <label>
-                <input type="checkbox" />
+                <input type="checkbox" name="Writing Board"
+                   onChange={onChange} />
                 <span>Writing Board</span>
                </label>
             </FormGroup>
-            </Row>
-            <Button style={{ background: "#30B9DB", border: "1px solid #30B9DB"}} onClick={buttonSubmit} > Add Room</Button>
-          </Form>
+          </Row>
+          <Input type='submit' 
+          value={current ? "Update Room" : "Add Room" }
+          style={{ background: "#30B9DB", border: "1px solid #30B9DB"}} />
+          </Form> 
           </div>
           <div className="form2">
             <form action="#">

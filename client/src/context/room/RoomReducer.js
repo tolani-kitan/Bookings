@@ -1,5 +1,5 @@
 import {
-  GET_ROOMS,SEARCH_ROOM, CLEAR_SEARCH, ROOM_ERROR, DELETE_ROOM, CURRENT_ROOM, CLEAR_CURRENT, ADD_ROOM
+  GET_ROOMS, EDIT_ROOM,SEARCH_ROOM, CLEAR_SEARCH, ROOM_ERROR, DELETE_ROOM, CURRENT_ROOM, CLEAR_CURRENT, ADD_ROOM
 } from '../Types';
 
 export default (state, action) => {
@@ -16,6 +16,12 @@ export default (state, action) => {
           rooms: [action.payload, ...state.rooms],
           loading: false
         };
+    case EDIT_ROOM:
+          return {
+              ...state,
+              rooms: state.rooms.map(room => room._id === action.payload._id ? action.payload : room),
+              loading: false
+          }
     case DELETE_ROOM:
         return {
           ...state,
