@@ -13,7 +13,6 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 // Route Files
-const bookings = require('./routes/bookings');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
 const rooms = require('./routes/rooms');
@@ -34,7 +33,6 @@ if (process.env.NODE_ENV === "development") {
 }
 
 // Mount routers
-app.use('/api/bookings', bookings);
 app.use('/api/auth', auth);
 app.use('/api/auth/admin', admin);
 app.use('/api/rooms', rooms);
