@@ -20,10 +20,8 @@ const Cancel = (props) => {
 
   const toggle = () => setModal(!modal);
   const canceled = () => {
-    const { _id } = bookings[0];
-    console.log(_id);
-    deleteBookedRoom(_id);
-    console.log(props.bookings, "hhhjjjjjjjj");
+    deleteBookedRoom(props.id);
+    console.log(props.bookings, "hhhjjjjjjjj", props);
     setModal(!modal);
   };
 

@@ -178,7 +178,7 @@ const MyBookings = () => {
                               <Report />
                             </div>
                             <div style={{ borderRadius: "3px" }}>
-                              <Cancel booking={bookings} />
+                              <Cancel booking={bookings} id={items._id} />
                             </div>
                             <div style={{ borderRadius: "3px" }}>
                               <Reschedule />
