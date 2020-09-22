@@ -40,7 +40,14 @@ export default (state, action) => {
     case UPDATE_BOOKINGS:
       return {
         ...state,
-        bookings: action.payload,
+        bookings: state.bookings.map((booking) => {
+          console.log(booking._id, action.payload, "jesusss");
+          if (booking._id === action.payload.data._id) {
+            return action.payload.data;
+          } else {
+            return booking;
+          }
+        }),
         loading: false,
       };
     case BOOK_ERROR:

@@ -1,65 +1,78 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import Calendar from "react-calendar";
+import BookingContext from "../../context/bookings/BookingContext";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import "react-calendar/dist/Calendar.css";
-import { Modal, Button, Select } from "antd";
+import { Select } from "antd";
 
 const { Option } = Select;
 
-class Reschedule extends React.Component {
-  state = {
-    visible: false,
-    date: new Date(),
-    value: [
-      "08:00 AM",
-      "09:00 AM",
-      "10:00 AM",
-      "11:00 AM",
-      "12:00 PM",
-      "1:00 PM",
-      "2:00 PM",
-      "3:00 PM",
-      "4:00 PM",
-      "5:00 PM",
-    ],
-  };
-  onChange = (date) => this.setState({ date });
+const Reschedule = (props) => {
+  const bookContext = useContext(BookingContext);
+  const { updateBookings, bookings } = bookContext;
+  const { _id, name, location, images, availability, capacity } = bookings[0];
 
-  showModal = () => {
-    this.setState({
-      visible: true,
+  console.log(bookings, "nameeeeeooooo");
+
+  const { className } = props;
+  const [date, setDate] = useState(new Date());
+  const [value, setValue] = useState([
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+  ]);
+
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
+  const update = async (e) => {
+    e.preventDefault();
+    const values = {
+      name,
+      capacity,
+      startTime: timeValue.start,
+      endTime: timeValue.end,
+      bookedDate: date,
+      availability,
+      location,
+      images,
+      _id,
+    };
+    updateBookings(values).then(() => {
+      console.log("doneeeeeeeeee");
     });
+
+    setModal(!modal);
   };
 
-  handleOk = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
+  const [timeValue, setTime] = useState({
+    start: value[0],
+    end: value[0],
+  });
+
+  const onChange = (date) => {
+    // console.log(date, "ddddddddddddddddd");
+    setDate(new Date(date));
   };
 
-  handleCancel = (e) => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
+  const handleChange = (value, type) => {
+    console.log(`selected ${value}`, type);
+    setTime((prev) => ({ ...prev, [type]: value }));
   };
-  handleChange = (value) => {
-    console.log(`selected ${value}`);
-  };
-  render() {
-    return (
-      <div>
-        <Button type='primary' onClick={this.showModal}>
-          <p>
-            <i class='far fa-calendar-alt'></i> Reschedule
-          </p>
-        </Button>
-        <Modal
-          title=''
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
+  return (
+    <div>
+      <Button color='danger' onClick={toggle}>
+        Reschedule
+      </Button>
+      <Modal isOpen={modal} toggle={toggle} className={className}>
+        <ModalBody>
           <div
             style={{
               display: "flex",
@@ -68,7 +81,7 @@ class Reschedule extends React.Component {
             }}
           >
             <div>
-              <Calendar onChange={this.onChange} value={this.state.date} />
+              <Calendar onChange={onChange} value={date} />
             </div>
             <br />
             <div
@@ -101,11 +114,11 @@ class Reschedule extends React.Component {
                 <br />
                 <Select
                   name='start'
-                  defaultValue={this.state.value[0]}
+                  defaultValue={value[0]}
                   style={{ width: 120 }}
-                  onChange={this.handleChange}
+                  onChange={(e) => handleChange(e, "start")}
                 >
-                  {this.state.value.map((value, index) => (
+                  {value.map((value, index) => (
                     <Option key={index} value={value}>
                       {value}
                     </Option>
@@ -135,11 +148,11 @@ class Reschedule extends React.Component {
                 <br />
                 <Select
                   name='end'
-                  defaultValue={this.state.value[0]}
+                  defaultValue={value[0]}
                   style={{ width: 120 }}
-                  onChange={this.handleChange}
+                  onChange={(e) => handleChange(e, "end")}
                 >
-                  {this.state.value.map((value, index) => (
+                  {value.map((value, index) => (
                     <Option key={index} value={value}>
                       {value}
                     </Option>
@@ -148,10 +161,18 @@ class Reschedule extends React.Component {
               </div>
             </div>
           </div>
-        </Modal>
-      </div>
-    );
-  }
-}
+        </ModalBody>
+        <ModalFooter>
+          <Button color='primary' onClick={update}>
+            Okay
+          </Button>{" "}
+          <Button color='secondary' onClick={toggle}>
+            Cancel
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
 
 export default Reschedule;

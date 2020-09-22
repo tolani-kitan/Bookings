@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, withRouter } from "react-router-dom";
 import Calendar from "react-calendar";
 import BookingContext from "../../context/bookings/BookingContext";
 import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
@@ -49,6 +49,7 @@ const BookRoom = (props) => {
     });
 
     setModal(!modal);
+    props.history.push("/dashboard/my-bookings");
   };
 
   const [timeValue, setTime] = useState({
@@ -174,4 +175,4 @@ const BookRoom = (props) => {
   );
 };
 
-export default BookRoom;
+export default withRouter(BookRoom);

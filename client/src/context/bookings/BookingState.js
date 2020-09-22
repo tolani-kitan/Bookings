@@ -65,6 +65,31 @@ const BookingState = (props) => {
     }
   };
 
+  // Update bookings
+  const updateBookings = async (bookings) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const res = await Axios.put(
+        `/api/bookroom/${bookings._id}`,
+        bookings,
+        config
+      );
+      dispatch({
+        type: UPDATE_BOOKINGS,
+        payload: res.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: BOOK_ERROR,
+        payload: error.response.msg,
+      });
+    }
+  };
+
   //Delete Booked Room
   const deleteBookedRoom = async (id) => {
     try {
@@ -119,6 +144,7 @@ const BookingState = (props) => {
         setCurrent,
         clearCurrent,
         deleteBookedRoom,
+        updateBookings,
       }}
     >
       {props.children}
