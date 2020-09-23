@@ -6,7 +6,6 @@ const User = require("../models/users");
 // @desc        Register user
 // @route       POST/auth/register
 // @access      Public
-
 exports.register = asyncHandler(async (req, res, next) => {
   const { name, email, password, image } = req.body;
 

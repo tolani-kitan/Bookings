@@ -42,7 +42,7 @@ class Successful extends Component {
                 <Link>
                   <p style={{ fontSize: "20px" }}>Manage bookings</p>
                 </Link>
-              </div>,
+              </div>, 
             ]}
           />
         </Modal>

@@ -4,13 +4,11 @@ import BookingContext from "../../../context/bookings/BookingContext";
 
 const TableBody = ({bookings}) => {
 
-  const { room, userName, shared, time, status } = bookings;
   const bookingsData = bookings.map((booking, index) => {
       return (
           <tr key={index}>
             <td>{booking.room}</td>
             <td>{booking.userName}</td>
-            <td>{booking.shared}</td>
             <td>{booking.time}</td>
             <td> {booking.status}</td>
           </tr>
@@ -32,7 +30,6 @@ const BookingsItem = () => {
           <tr>
               <th>Room</th>
               <th>Booked By</th>
-              <th>Shared with</th>
               <th>Time</th>
               <th>Status</th>
           </tr>
