@@ -34,20 +34,6 @@ exports.bookRoom = asyncHandler(async (req, res, next) => {
                 }
             }
 
-            // if (checkAvailable.length > 0 && checkAvailable[0].startTime <= startTime && checkAvailable[0].endTime >= startTime) {
-            //     // check if the database starttime >= user startTime and the endTime <= user endTime return error
-                 
-            //     return res.status(400).json({error: `This Room has been booked for ${checkAvailable[0].startTime} to ${checkAvailable[0].endTime}`})
-            // } 
-
-            // if (checkAvailable.length > 0 && checkAvailable[0].startTime <= endTime && checkAvailable[0].endTime >= endTime) {
-            //     // check if the database starttime >= user startTime and the endTime <= user endTime return error
-                
-            //     return res.status(400).json({error: `There's an ongoing session that'll end by ${checkAvailable[0].endTime}`})
-            // }
-
-        // console.log(startTime, endTime, checkAvailable[0].startTime, checkAvailable[0].endTime, "checking against all properties")
-        //     console.log(checkAvailable)
         const bookRoom = await BookRoom.create({
             startTime,
             endTime,
