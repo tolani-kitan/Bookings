@@ -5,6 +5,7 @@ import axios from 'axios';
 import {
   GET_ROOMS,
   ADD_ROOM,
+  EDIT_ROOM,
   BOOK_ROOM,
   DELETE_ROOM,
   SEARCH_ROOM,
@@ -62,7 +63,25 @@ const addRoom = async room => {
 };
 
 //Edit Room
-
+const updateRoom = async room => {
+  const config = {
+      headers: {
+          'Content-Type': 'application/json'
+      }
+  }
+  try {
+      const res = await axios.post(`/api/rooms/${room._id}`, room, config);
+      dispatch({ 
+          type: EDIT_ROOM, 
+          payload: res.data
+      })
+  } catch (error) {
+      dispatch({ 
+          type: ROOM_ERROR,
+          payload: error.response.msg 
+      })
+  }
+};
 
 //Delete Room
 const deleteRoom = async id => {
@@ -108,8 +127,10 @@ const clearCurrent = () => {
     <RoomContext.Provider value={{ 
       rooms: state.rooms,
       filtered: state.filtered,
+      error: state.error,
       getRooms,
       addRoom,
+      updateRoom,
       deleteRoom,
       setCurrent,
       clearCurrent,

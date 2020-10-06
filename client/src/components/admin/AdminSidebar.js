@@ -46,6 +46,8 @@ const AdminSidebar = () => {
           <ul className='list-group'>
             <Link to="/admin/dashboard" className='one'>Overview</Link>
             <Link to="/admin/rooms" className='two'>Rooms</Link>
+            <a href="#" className='two'>Reports</a>
+
           </ul>
         </div>
         <UncontrolledDropdown className='dropit1'>

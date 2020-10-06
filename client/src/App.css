@@ -283,12 +283,11 @@ body {
 .content-d {
   width: 80%;
   float: right;
-  color: #F5FDFF;
+  color: #f5fdff;
 }
 .rooms-d {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-
   grid-gap: 20px;
 }
 
@@ -335,7 +334,7 @@ body {
 @media only screen and (min-width: 800px) {
   .rooms-d {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 10px;
   }
   /* .mybook1 {
@@ -374,10 +373,10 @@ body {
 }
 
 @media only screen and (max-width: 1024px) {
-  .rooms-d {
+  /* .rooms-d {
     display: grid;
     grid-template-columns: 1fr 1fr;
-  }
+  } */
   /* .mybook1 {
     margin-left: 0px;
     width: 150px;
@@ -393,13 +392,13 @@ body {
     width: 100%;
     max-width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
   }
   */ .content-d {
     width: 100%;
   }
   #sidebar {
-    width: 25%;
+    width: 20%;
   }
 
   .side {
@@ -495,4 +494,10 @@ body {
   margin-bottom: 24px;
   border: 0px;
   overflow: hidden;
+}
+.sideman {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  color: yellow;
 }
