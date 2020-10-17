@@ -16,7 +16,7 @@ connectDB();
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
 const rooms = require('./routes/rooms');
-const bookRoom = require('./routes/bookroom');
+const bookRoom = require('./routes/bookRoom');
 
 const app = express();
 
